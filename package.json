@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/helloyongwei/lunzi-vue/issues"
   },
-  "homepage": "https://github.com/helloyongwei/lunzi-vue#readme"
+  "homepage": "https://github.com/helloyongwei/lunzi-vue#readme",
+  "dependencies": {
+    "vue": "^2.5.17"
+  }
 }
