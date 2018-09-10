@@ -18,5 +18,8 @@
   "homepage": "https://github.com/helloyongwei/lunzi-vue#readme",
   "dependencies": {
     "vue": "^2.5.17"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.9.7"
   }
 }
