@@ -74,14 +74,10 @@ describe('Button', () => {
         icon: 'settings',
       }
     }).$mount()
-    console.log(1);
     const callback = sinon.fake();
     vm.$on('click', callback)
-    console.log(2);
     vm.$el.click()
-    console.log(3);
     expect(callback).to.have.been.called
-    console.log(4);
 
   })
 })
