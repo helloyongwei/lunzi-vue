@@ -1,6 +1,6 @@
 {
   "name": "lunzi-vue",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "这是一个vue轮子的库",
   "main": "dist/index.js",
   "scripts": {
