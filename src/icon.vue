@@ -1,5 +1,5 @@
 <template>
-  <svg class="icon">
+  <svg class="g-icon">
     <use :xlink:href="`#i-${name}`"></use>
   </svg>
 </template>
@@ -9,7 +9,7 @@
   }
 </script>
 <style type="text/css">
-  .icon {
+  .g-icon {
     width: 1em;
     height: 1em;
     vertical-align: -0.15em;

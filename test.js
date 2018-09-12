@@ -3,6 +3,7 @@ const p = require('path');
 var static = require('node-static');
 var file = new static.Server('./dist');
 var port = process.env.PORT || 8080
+
 var server = require('http').createServer(function (request, response) {
   request.addListener('end', function () {
     file.serve(request, response);
@@ -10,7 +11,7 @@ var server = require('http').createServer(function (request, response) {
 })
 
 !(async () => {
-  server.listen(port)
+  server.listen(port);
   const browser = await puppeteer.launch({headless: false})
   const page = await browser.newPage()
   await page.setRequestInterception(true);
@@ -40,4 +41,5 @@ var server = require('http').createServer(function (request, response) {
   });
 
   await page.goto(`http://127.0.0.1:${port}`)
+
 })()
