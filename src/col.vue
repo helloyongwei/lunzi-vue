@@ -23,7 +23,7 @@ export default {
     offset: {
       type: [Number, String]
     },
-    phone: {type: Object, validator},
+
     ipad: {type: Object, validator},
     narrowPc: {type: Object, validator},
     pc: {type: Object, validator},
@@ -35,17 +35,31 @@ export default {
       gutter: 0
     }
   },
+  methods: {
+    createClasses (obj, str = '') {
+      if (!obj) {
+        return []
+      }
+      let array = []
+      if (obj.span) {
+        array.push(`col-${str}${obj.span}`)
+      }
+      if (obj.offset) {
+      array.push(`offset-${str}${obj.offset}`)
+      }
+    }
+  },
   computed: {
     colClass(){
       let {span, offset, ipad, narrowPc, pc, widePc} = this
+      let createClasses = this.createClasses
       return [
-        span && `col-${span}`,
-        offset && `offset-${offset}`,
+        ...createClasses({span, offset}),
+        ...createClasses(ipad, 'ipad-'),
+        ...createClasses(narrowPc, 'narrow-pc'),
+        ...createClasses(pc, 'pc'),
+        ...createClasses(widePc, 'wide-pc-'),
 
-        ...(ipad && [`col-ipad-${ipad.span}`]),
-        ...(narrowPc && [`col-narrowPc-${narrowPc.span}`]),
-        ...(pc && [`col-pc-${pc.span}`]),
-        ...(widePc && [`col-widePc-${widePc.span}`]),
       ]
     },
     colStyle(){
@@ -72,7 +86,7 @@ export default {
       }
     }
 
-    @media (min-width: 577px) and (max-width: 768px) {
+    @media (min-width: 577px)  {
       $class-prefix: col-ipad-;
       @for $n from 1 through 24 {
         &.#{$class-prefix}#{$n} {
@@ -86,7 +100,7 @@ export default {
         }
       }
     }
-    @media (min-width: 769px) and (max-width: 992px) {
+    @media (min-width: 769px){
       $class-prefix: col-narrow-pc-;
       @for $n from 1 through 24 {
         &.#{$class-prefix}#{$n} {
@@ -100,7 +114,7 @@ export default {
         }
       }
     }
-    @media (min-width: 993px) and (max-width: 1200px) {
+    @media (min-width: 993px){
       $class-prefix: col-pc-;
       @for $n from 1 through 24 {
         &.#{$class-prefix}#{$n} {
