@@ -6,10 +6,11 @@
 <script>
   import './svg'
   export default {
+    name: 'LunziIcon',
     props: ['name']
   }
 </script>
-<style type="text/css">
+<style type="text/css" scoped>
   .g-icon {
     width: 1em;
     height: 1em;
