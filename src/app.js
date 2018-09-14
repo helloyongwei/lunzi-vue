@@ -45,21 +45,31 @@ new Vue({
     })
   },
   created() {
-    this.$toast('请充值', {
-      position: 'middle',
-      enableHtml: false,
-      closeButton: {
-        text: '已充值',
-        callback(){
-          console.log('它说已充值')
-        }
-      },
-      autoClose: false,
-      autoCloseDelay: 3
-    })
+
   },
   methods: {
-    showToast() {
+    showToast1(){
+      this.showToast('top')
+    },
+    showToast2(){
+      this.showToast('middle')
+    },
+    showToast3(){
+      this.showToast('bottom')
+    },
+    showToast(position) {
+      this.$toast(`请充值${parseInt(Math.random()*100)}`, {
+        position,
+        enableHtml: false,
+        closeButton: {
+          text: '已充值',
+          callback(){
+            console.log('它说已充值')
+          }
+        },
+        autoClose: false,
+        autoCloseDelay: 3
+      })
     },
     inputChange (e) {
       console.log(e)
