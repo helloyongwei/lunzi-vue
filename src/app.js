@@ -44,6 +44,20 @@ new Vue({
       enableHtml: false
     })
   },
+  created() {
+    this.$toast('请充值', {
+      position: 'middle',
+      enableHtml: false,
+      closeButton: {
+        text: '已充值',
+        callback(){
+          console.log('它说已充值')
+        }
+      },
+      autoClose: false,
+      autoCloseDelay: 3
+    })
+  },
   methods: {
     showToast() {
     },
