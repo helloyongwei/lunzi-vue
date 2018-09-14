@@ -10,7 +10,7 @@
 </template>
 <script>
   export default {
-    name: 'GuluSider',
+    name: 'LunziSider',
     data() {
       return {
         visible: true,
