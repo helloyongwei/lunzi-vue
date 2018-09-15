@@ -47,14 +47,12 @@ new Vue({
     selectedTab: 'sports'
   },
   created() {
-    this.$toast('文字', {
-      enableHtml: false
-    })
-  },
-  created() {
-
   },
   methods: {
+    yyy(data) {
+      console.log('yyy')
+      console.log(data)
+    },
     showToast1(){
       this.showToast('top')
     },
