@@ -67,8 +67,7 @@ new Vue({
             console.log('它说已充值')
           }
         },
-        autoClose: false,
-        autoCloseDelay: 3
+        autoClose: 3,
       })
     },
     inputChange (e) {
