@@ -3,12 +3,11 @@
     <slot></slot>
   </div>
 </template>
-
 <script>
   export default {
-    name: 'LunziTabsItem',
+    name: 'GuluTabsItem',
     inject: ['eventBus'],
-    data(){
+    data () {
       return {
         active: false
       }
@@ -24,32 +23,31 @@
       }
     },
     computed: {
-      classes(){
+      classes () {
         return {
           active: this.active,
           disabled: this.disabled
         }
       }
     },
-    created() {
-      if (this.event) {
-        this.eventBus.$on('update:selected', (name)=>{
+    created () {
+      if (this.eventBus) {
+        this.eventBus.$on('update:selected', (name) => {
           this.active = name === this.name;
         })
       }
     },
     methods: {
-      onClick() {
+      onClick () {
         if (this.disabled) { return }
-        this.eventBus.$emit('update:selected', this.name, this)
+        this.eventBus && this.eventBus.$emit('update:selected', this.name, this)
         this.$emit('click', this)
       }
     }
   }
 </script>
-
 <style lang="scss" scoped>
-  $blue:blue;
+  $blue: blue;
   $disabled-text-color: grey;
   .tabs-item {
     flex-shrink: 0;

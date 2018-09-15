@@ -3,11 +3,10 @@
     <slot></slot>
   </div>
 </template>
-
 <script>
   import Vue from 'vue'
   export default {
-    name: 'LunziTabs',
+    name: 'GuluTabs',
     props: {
       selected: {
         type: String,
@@ -16,22 +15,22 @@
       direction: {
         type: String,
         default: 'horizontal',
-        validator(value) {
-          return ['horizontal', 'vertical'].indexOf(value)>=0
+        validator (value) {
+          return ['horizontal', 'vertical'].indexOf(value) >= 0
         }
       }
     },
-    data(){
+    data () {
       return {
         eventBus: new Vue()
       }
     },
-    provide() {
+    provide () {
       return {
         eventBus: this.eventBus
       }
     },
-    mounted() {
+    mounted () {
       if (this.$children.length === 0) {
         console && console.warn &&
         console.warn('tabs的子组件应该是tabs-head和tabs-nav，但你没有写子组件')
@@ -49,9 +48,7 @@
     }
   }
 </script>
-
 <style>
   .tabs {
-
   }
 </style>
