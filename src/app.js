@@ -5,11 +5,11 @@ import ButtonGroup from './button-group'
 import Input from './input'
 import Row from './row'
 import Col from './col'
-import Header from './header.vue'
-import Layout from './layout.vue'
-import Sider from './sider.vue'
-import Content from './content.vue'
-import Footer from './footer.vue'
+import Layout from './layout'
+import Header from './header'
+import Sider from './sider'
+import Content from './content'
+import Footer from './footer'
 import Toast from './toast'
 import plugin from './plugin'
 import Tabs from './tabs'
@@ -17,7 +17,9 @@ import TabsHead from './tabs-head'
 import TabsBody from './tabs-body'
 import TabsItem from './tabs-item'
 import TabsPane from './tabs-pane'
-import Popover from './popover.vue'
+import Popover from './popover'
+import Collapse from './collapse'
+import CollapseItem from './collapse-item'
 
 Vue.component('g-button', Button)
 Vue.component('g-icon', Icon)
@@ -27,9 +29,9 @@ Vue.component('g-row', Row)
 Vue.component('g-col', Col)
 Vue.component('g-layout', Layout)
 Vue.component('g-header', Header)
-Vue.component('g-sider', Sider)
 Vue.component('g-content', Content)
 Vue.component('g-footer', Footer)
+Vue.component('g-sider', Sider)
 Vue.component('g-toast', Toast)
 Vue.use(plugin)
 Vue.component('g-tabs', Tabs)
@@ -38,6 +40,8 @@ Vue.component('g-tabs-body', TabsBody)
 Vue.component('g-tabs-item', TabsItem)
 Vue.component('g-tabs-pane', TabsPane)
 Vue.component('g-popover', Popover)
+Vue.component('g-collapse', Collapse)
+Vue.component('g-collapse-item', CollapseItem)
 
 import createElement from 'vue'
 
@@ -48,10 +52,10 @@ new Vue({
   data: {
     selectedTab: 'sports'
   },
-  created() {
+  created(){
   },
   methods: {
-    yyy() {
+    yyy(){
       console.log('yyy')
     },
     showToast1(){
@@ -63,21 +67,18 @@ new Vue({
     showToast3(){
       this.showToast('bottom')
     },
-    showToast(position) {
-      this.$toast(`请充值${parseInt(Math.random()*100)}`, {
+    showToast(position){
+      this.$toast(`你的智商目前为 ${parseInt(Math.random() * 100)}。你的智商需要充值！`, {
         position,
         enableHtml: false,
         closeButton: {
           text: '已充值',
-          callback(){
-            console.log('它说已充值')
+          callback () {
+            console.log('他说已经充值智商了')
           }
         },
         autoClose: 3,
       })
-    },
-    inputChange (e) {
-      console.log(e)
     }
   }
 })

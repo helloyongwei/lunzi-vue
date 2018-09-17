@@ -29,5 +29,5 @@ describe('Popover', () => {
       done()
     })
   })
-  
+
 })
